@@ -33,7 +33,7 @@ $conn  = conn();
 $db    = new Database($conn);
 
 $_POST['pic_url'] = do_upload($_FILES['pic_url'],'uploads');
-
+$_POST['password'] = md5($_POST['password']);
 $db->insert('users',$_POST);
 
 // notif here
