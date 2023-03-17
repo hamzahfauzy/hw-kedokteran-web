@@ -1,19 +1,19 @@
 <?php
 
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Headers: *");
-// header("Access-Control-Allow-Methods: *");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
 // Specify domains from which requests are allowed
-header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Origin: *');
 
 // Specify which request methods are allowed
-header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
+// header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
 
 // Additional headers which may be sent along with the CORS request
-header('Access-Control-Allow-Headers: X-Requested-With,Authorization,Content-Type');
+// header('Access-Control-Allow-Headers: X-Requested-With,Authorization,Content-Type');
 
 // Set the age to 1 day to improve speed/caching.
-header('Access-Control-Max-Age: 86400');
+// header('Access-Control-Max-Age: 86400');
 
 header("Content-Type: application/json");
 
