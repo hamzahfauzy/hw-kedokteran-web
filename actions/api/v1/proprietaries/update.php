@@ -32,6 +32,11 @@ $data = $db->update('proprietaries',[
 $data->category = json_decode($data->category);
 $data->questions = json_decode($data->questions);
 
+$db->insert('logs',[
+    'user_id' => $user->id,
+    'description' => 'Menjawab soal '.$data->category->name
+]);
+
 echo json_encode([
     'success' => true,
     'message' => 'Detail proprietaries',

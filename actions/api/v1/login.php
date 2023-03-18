@@ -32,6 +32,10 @@ if($user)
     $token = bin2hex(random_bytes(64));
     $expired_at = date('Y-m-d H:i:s', strtotime('+4 hour'));
     $user  = $db->update('users',['auth_token'=>$token, 'token_expired_at' => $expired_at],['id' => $user->id]);
+    $db->insert('logs',[
+        'user_id' => $user->id,
+        'description' => 'Melakukan login ke sistem'
+    ]);
 
     echo json_encode([
         'success' => true,

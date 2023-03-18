@@ -1,5 +1,9 @@
 <?php
 
 return [
-    'offices' => 'kantor'
+    'offices' => 'kantor',
+    'categories' => 'Kategori',
+    'questions' => 'Bank Soal',
+    'transactions' => 'Transaksi',
+    'logs' => 'Log Aktivitas'
 ];

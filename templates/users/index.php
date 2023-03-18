@@ -28,6 +28,9 @@
                                             <th width="20px">#</th>
                                             <th>Nama</th>
                                             <th>Username</th>
+                                            <th>Alamat</th>
+                                            <th>No. HP</th>
+                                            <th>Status</th>
                                             <th class="text-right">
                                             </th>
                                         </tr>
@@ -40,8 +43,13 @@
                                             </td>
                                             <td><?=$data->name?></td>
                                             <td><?=$data->username?></td>
+                                            <td><?=$data->address?></td>
+                                            <td><?=$data->phone?></td>
+                                            <td><?=$data->status?></td>
                                             <td>
-                                                <a href="<?=routeTo('users/view',['id'=>$data->id])?>" class="btn btn-sm btn-success"><i class="fas fa-eye"></i> Lihat</a>
+                                                <?php if($data->status != 'AKTIF'): ?>
+                                                <a href="<?=routeTo('users/verification',['id'=>$data->id])?>" class="btn btn-sm btn-success"><i class="fas fa-check"></i> Verifikasi</a>
+                                                <?php endif ?>
                                                 <a href="<?=routeTo('users/edit',['id'=>$data->id])?>" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i> Edit</a>
                                                 <a href="<?=routeTo('users/delete',['id'=>$data->id])?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                                             </td>

@@ -12,9 +12,9 @@ $params = [
     'name' => [
         'required'
     ],
-    'username' => [
-        'required','unique:users'
-    ],
+    // 'username' => [
+    //     'required','unique:users'
+    // ],
     'address' => [
         'required'
     ],

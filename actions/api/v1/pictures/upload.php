@@ -25,6 +25,11 @@ $db->insert('pictures',[
     'file'    => $file
 ]);
 
+$db->insert('logs',[
+    'user_id' => $user->id,
+    'description' => 'Mengupload gambar '.asset($file)
+]);
+
 echo json_encode([
     'success' => true,
     'message' => 'Gambar berhasil di upload'

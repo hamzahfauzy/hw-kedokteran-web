@@ -24,6 +24,11 @@ $db->update('users',[
 ],[
     'id' => $user->id
 ]);
+
+$db->insert('logs',[
+    'user_id' => $user->id,
+    'description' => 'Melakukan reset password'
+]);
 // notif here
 
 echo json_encode([

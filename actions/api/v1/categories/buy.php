@@ -28,6 +28,11 @@ $data = $db->insert('transactions',[
     'amount'      => $category->price
 ]);
 
+$db->insert('logs',[
+    'user_id' => $user->id,
+    'description' => 'Membeli kategori '.$category->name.' (pending)'
+]);
+
 echo json_encode([
     'success' => true,
     'message' => 'Pembelian Berhasil. Silahkan lanjutkan ke pembayaran'
