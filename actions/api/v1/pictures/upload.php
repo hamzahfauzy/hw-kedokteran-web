@@ -27,6 +27,6 @@ $db->insert('pictures',[
 
 echo json_encode([
     'success' => true,
-    'message' => 'Gambar berhasil di update'
+    'message' => 'Gambar berhasil di upload'
 ]);
 die();

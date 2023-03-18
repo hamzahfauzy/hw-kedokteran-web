@@ -15,6 +15,11 @@ $data = $db->all('pictures',[
     'user_id' => $user->id,
 ],['id' => 'DESC']);
 
+$data = array_map(function($d){
+    $d->file_url = asset($d->file_url);
+    return $d;
+}, $data);
+
 echo json_encode([
     'success' => true,
     'message' => 'List pictures',
