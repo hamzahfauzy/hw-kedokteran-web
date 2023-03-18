@@ -16,7 +16,7 @@ $data = $db->all('pictures',[
 ],['id' => 'DESC']);
 
 $data = array_map(function($d){
-    $d->file_url = asset($d->file_url);
+    $d->file_url = asset($d->file);
     return $d;
 }, $data);
 
