@@ -31,7 +31,7 @@ if($user)
     // generate token
     $token = bin2hex(random_bytes(64));
     $expired_at = date('Y-m-d H:i:s', strtotime('+4 hour'));
-    $user  = $db->update(['auth_token'=>$token, 'token_expired_at' => $expired_at],['id' => $user->id]);
+    $user  = $db->update('users',['auth_token'=>$token, 'token_expired_at' => $expired_at],['id' => $user->id]);
 
     echo json_encode([
         'success' => true,
