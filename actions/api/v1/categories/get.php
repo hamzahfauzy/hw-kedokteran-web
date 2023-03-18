@@ -17,6 +17,6 @@ $data = $db->exec('all');
 echo json_encode([
     'success' => true,
     'message' => 'List categories',
-    'data'    => $categories
+    'data'    => $data
 ]);
 die();
