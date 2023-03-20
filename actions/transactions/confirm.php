@@ -31,6 +31,8 @@ $db->insert('proprietaries',[
     'expired_at' => date('Y-m-d',strtotime('+'.$category->active_time.' days'))
 ]);
 
+$db->update('transactions',['status'=>'confirm'],['id' => $id]);
+
 set_flash_msg(['success'=>'Transaksi berhasil dikonfirmasi']);
 header('location:'.routeTo('crud/index',['table'=>'transactions']));
 die();
