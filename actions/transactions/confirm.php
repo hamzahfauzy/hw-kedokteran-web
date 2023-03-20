@@ -22,7 +22,7 @@ $db->query = "SELECT * FROM questions WHERE id IN (SELECT question_id FROM categ
 $questions = $db->exec('all');
 
 $db->insert('proprietaries',[
-    'user_id' => $user->id,
+    'user_id' => $transaction->user_id,
     'transaction_id' => $id,
     'category_id' => $category->id,
     'category' => json_encode($category),
