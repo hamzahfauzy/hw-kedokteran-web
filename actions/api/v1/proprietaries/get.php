@@ -19,6 +19,13 @@ $data = $db->all('proprietaries',[
 $data = array_map(function($d) use ($db) {
     $d->category = json_decode($d->category);
     $d->questions = json_decode($d->questions);
+    foreach($d->questions as $question)
+    {
+        if(!isset($question->answer))
+        {
+            $question->answer = '';
+        }
+    }
     return $d;
 }, $data);
 

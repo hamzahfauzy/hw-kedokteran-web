@@ -17,6 +17,7 @@ $data = $db->all('transactions',[
 
 $data = array_map(function($d) use ($db) {
     $d->category = $db->single('categories',['id' => $d->category_id]);
+    $d->file_url = asset($d->file);
     return $d;
 }, $data);
 

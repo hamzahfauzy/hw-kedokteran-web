@@ -28,6 +28,13 @@ $data = $db->single('proprietaries',[
 
 $data->category = json_decode($data->category);
 $data->questions = json_decode($data->questions);
+foreach($data->questions as $question)
+{
+    if(!isset($question->answer))
+    {
+        $question->answer = '';
+    }
+}
 
 echo json_encode([
     'success' => true,

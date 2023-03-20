@@ -25,6 +25,8 @@ $data = $db->single('transactions',[
     'user_id' => $user->id
 ]);
 
+$data->file_url = asset($data->file);
+
 $data->category = $db->single('categories',['id' => $data->category_id]);
 
 echo json_encode([
