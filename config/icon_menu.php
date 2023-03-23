@@ -7,6 +7,7 @@ return [
     'bank soal' => 'fas fa-anchor',
     'transaksi' => 'fas fa-money-bill',
     'log aktivitas' => 'fas fa-sticky-note',
+    'backup database' => 'fas fa-database',
     'laporan' => 'fas fa-file',
     'pengguna'  => 'fas fa-users',
     'pengaturan' => 'fas fa-cog'

@@ -8,6 +8,7 @@ return [
     'transaksi' => 'crud/index?table=transactions',
     'log aktivitas' => 'crud/index?table=logs',
     'laporan' => 'reports/index',
+    'backup database' => 'app/db-backup',
     'pengguna'  => [
         'semua pengguna' => 'users/index',
         'roles' => 'roles/index'

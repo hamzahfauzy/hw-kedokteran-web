@@ -704,3 +704,61 @@ function getBearerToken() {
     }
     return null;
 }
+
+function backup()
+{
+    $conn = conn();
+    $db   = new Database($conn);
+
+    $db->query = "SHOW TABLES";
+    $result = $db->exec('all');
+
+    $tables = array();
+    $tables = array_column($result, 'Tables_in_'.config('database')['dbname']);
+
+    $return	= '';
+
+    foreach($tables as $table)
+    {
+        $result	 = $conn->query('SELECT * FROM '.$table);
+        $num_fields = $result->num_rows;
+
+        for ($i = 0; $i < $num_fields; $i++)
+        {
+            while($row = $result->fetch_row())
+            {
+                
+                $values = [];
+                foreach($row as $r)
+                {
+                    if(empty($r) || $r == "")
+                    {
+                        $values[] = "NULL";
+                    }
+                    else
+                    {
+                        $values[] = '"'.$r.'"';
+                    }
+                }
+                $values = implode(',', $values);
+                $return.= 'INSERT INTO '.$table.' VALUES('.$values.');'."\n";
+            }
+        }
+
+    }
+
+    $nama_file = 'backup/database_'.date('Ymd_His').'.sql';
+
+    $parent_path = '../';
+    $myfile = fopen($parent_path . "migrations/init.sql", "r") or die("Unable to open file!");
+    $query  = fread($myfile,filesize($parent_path . "migrations/init.sql"));
+    fclose($myfile);
+
+    $return = "SET foreign_key_checks = 0;\n\n\n".$query . "\n\n\n" .$return."\n\nSET foreign_key_checks = 1;";
+
+    $handle = fopen($nama_file,'w+');
+    fwrite($handle, $return);
+    fclose($handle);
+
+    return $nama_file;
+}

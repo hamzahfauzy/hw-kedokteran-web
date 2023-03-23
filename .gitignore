@@ -1,6 +1,7 @@
 config/app.php
 
 public/uploads
+public/backup
 
 #for development purpose
 reset.php 
